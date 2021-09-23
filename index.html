@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Code Quiz</title>
+</head>
+<body>  
+    <div class ="header" id="countdown">
+        <ul>
+            <li><a href="highscore">View High Scores</ahref></a></li>
+            <li><a class="Timer">Time Remaing:</ahref></a></li>
+         </ul>
+    </div>
+
+    <div class="container">
+        <div class= "start-quiz" id= "start-page">
+            <h2>Welcome to the Coding Game!</h2>
+                <p>There are 5 multiple choice questions about coding. For every answer you get correct, you will earn 5 seconds and for every answer you answer wrong, you will lose 5 points. Your final score is the time remaining at the end fo the game.
+                </p>
+                <p>Click 'Start Game' to begin!!"</p>
+            <button id="startQuiz">Start Quiz</button>
+        </div>
+
+        <div class="questions">
+            <h3 id= "currentQuestion"></h3>
+            <ul>
+                <li id = "option1"></l1>
+                <li id = "option2"></l1>
+                <li id = "option3"></l1>
+                <li id = "option4"></l1>
+                
+        </div>
+
+        <div id="results"></div>
+
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

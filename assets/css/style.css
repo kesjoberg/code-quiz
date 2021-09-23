@@ -1,0 +1,55 @@
+.hide {
+  display: none;
+}
+
+.show{
+  display: flex;
+}
+/* can add and remove classes to show and hide sections on the screen.*/
+
+.header {
+  padding: 1%;
+  background-color: purple;
+  border-bottom: 2px solid black;
+}
+
+.header ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+
+
+}
+
+.header ul li a{
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  margin-right: 16px;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: bisque;
+  border: 2px solid black;
+  height: 500px;
+  width: 600px;
+  margin-top: 20px;
+}
+
+.container h3 {
+  font-size: 24px;
+  font-weight: bold; 
+}
+
+.container li {
+  display: flex;
+  margin-top: 15px;
+  background-color: rgb(158, 240, 255);
+  border: 2px solid black;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
