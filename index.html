@@ -13,15 +13,16 @@
     <div class ="header" id="countdown">
         <ul>
             <li><a href="highscore">View High Scores</ahref></a></li>
-            <li><a class="Timer">Time Remaing:</ahref></a></li>
+            <li class="timer">Time Remaining: <span></span></li>
          </ul>
     </div>
 
     <div class="container">
-        <div class= "start-quiz" id= "start-page">
+        <div class= "start-quiz" id= "startPage">
             <h2>Welcome to the Coding Game!</h2>
-                <p>There are 5 multiple choice questions about coding. For every answer you get correct, you will earn 5 seconds and for every answer you answer wrong, you will lose 5 points. Your final score is the time remaining at the end fo the game.
-                </p>
+                <p>There are 5 multiple choice questions about coding.</p>
+                <p>For every answer you answer wrong, you will lose 5 points.</p>  
+                <p>Your final score is the time remaining at the end fo the game.</p>
                 <p>Click 'Start Game' to begin!!"</p>
             <button id="startQuiz">Start Quiz</button>
         </div>
@@ -33,10 +34,20 @@
                 <li id = "option2"></l1>
                 <li id = "option3"></l1>
                 <li id = "option4"></l1>
+            </ul>       
+            <p id = "check-answer"></p>
                 
         </div>
 
-        <div id="results"></div>
+        <div id="results">
+            <h3>All Done!</h3>
+            <p>Your score is: <span id='score'></span></p>
+            <form>
+                <label>Enter Your Initials Here: </label>
+                <input id="initials" type="text" name="initials" placeholder="Initials">
+              </form>
+              <a href="highscore.html"><button >Submit</button></a>
+        </div>
 
     </div>
     <script src="./assets/js/script.js"></script>

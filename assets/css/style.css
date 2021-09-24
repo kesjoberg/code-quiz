@@ -9,7 +9,7 @@
 
 .header {
   padding: 1%;
-  background-color: purple;
+  background-color: rgb(158, 240, 255);
   border-bottom: 2px solid black;
 }
 
@@ -34,22 +34,51 @@
   padding: 60px;
   background-color: bisque;
   border: 2px solid black;
+  border-radius: 5px;
   height: 500px;
   width: 600px;
   margin-top: 20px;
+  line-height: 20px;
 }
 
-.container h3 {
+.start-quiz {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-quiz h2{
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 40px;
+}
+
+#startQuiz {
+  margin-top: 30px;
+}
+
+.container .questions {
+  display: none;
+
+}
+
+.questions h3 {
   font-size: 24px;
   font-weight: bold; 
 }
 
-.container li {
+.questions li {
   display: flex;
-  margin-top: 15px;
+  flex-direction:column;
+  margin-top: 25 px;
   background-color: rgb(158, 240, 255);
   border: 2px solid black;
   height: 30px;
   justify-content: center;
   align-items: center;
+}
+
+#results {
+  display: none;
 }

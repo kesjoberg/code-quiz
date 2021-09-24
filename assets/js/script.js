@@ -6,38 +6,40 @@ var option2 = document.getElementById("option2");
 var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 var startQuiz = document.getElementById("startQuiz");
-var startInfo = document.getElementById("startsection");
+var startPage = document.getElementById("start-page");
+var timeCounter = document.querySelector("li span");
+var scores = document.getElementById("score");
 
 var questions =[ 
 {
-    question: "What does HTML mean?", 
+    question: "What does 'M' mean in HTML?", 
     answers :{
-        a: "Happy Text Management Learning",
-        b: "High Test Mockup Language",
-        c: "Hypertext Markdown Language",
-        d: "Help, Teach Me Lots"
+        a: "Management",
+        b: "Markdown",
+        c: "Marker",
+        d: "Markup"
     },
-    correctAnswer: "Hypertext Markdown Language"
+    correctAnswer: "Markdown"
 },
 {
-    question: "Which is the proper symbol for a class on a CSS stylesheet?", 
+    question: "We can use _______________ to save user information to a personal computer or device?", 
     answers :{
-        a: ".",
-        b: "#",
-        c: "<>",
-        d: "/*"
+        a: "DOM",
+        b: "HTML",
+        c: "Console Logs",
+        d: "Local Storage"
     },
-    correctAnswer: "#"
+    correctAnswer: "Local Storage"
 },
 {
-    question: "What does the 'M' in HTML represent?", 
+    question: "We can use _______ to write functions our webpages operate.",
     answers :{
-        a: "materials",
-        b: "management",
-        c: "merge",
-        d: "markdown"
+        a: "JavaScript",
+        b: "HTML",
+        c: "DOM",
+        d: "CSS"
     },
-    correctAnswer: "markdown"
+    correctAnswer: "JavaScript"
 },
 {
     question: "Which file type would you expect to find all of the styling for a webpage?", 
@@ -50,7 +52,7 @@ var questions =[
     correctAnswer: ".css"
 },
 {
-    question: "In JavaScript, what do you ", 
+    question: "In JavaScript, what is another name for a loop? ", 
     answers :{
         a: "variable",
         b: "function",
@@ -62,9 +64,7 @@ var questions =[
 ];
 
 var currentQuestionIndex = 0
-// function beforeStart(){
-//     startInfo.textContent = "Welcome to the Coding Game\n There are 5 multiple choice questions about coding. For every answer you get correct, you will earn 5 seconds and for every answer you answer wrong, you will lose 5 points. Your final score is the time remaining at the end fo the game.\n Click 'Start Game' to begin!!"
-// }
+
 startQuiz.addEventListener("click", function() {
     setTime();
     askQuestions();
@@ -90,15 +90,22 @@ option4.addEventListener("click", function(event){
 
 
 function askQuestions() {
-    document.getElementById('startQuiz').style.visibility='hidden';
-    document.getElementById('startsection').style.visibility='hidden';
-    var currentQuestion = questions[currentQuestionIndex];
-    questionEl.textContent = currentQuestion.question;
-    option1.textContent = currentQuestion.answers.a;
-    option2.innerHTML = currentQuestion.answers.b;
-    option3.innerHTML = currentQuestion.answers.c;
-    option4.innerHTML = currentQuestion.answers.d;
-    currentQuestionIndex++;
+    // the following will stop displaying the first page and display the questions.
+    document.getElementById('startQuiz').style.display='none';
+    document.getElementById('startPage').style.display='none';
+    document.querySelector(".questions").style.display="block";
+  
+    if (currentQuestionIndex <= questions.length){
+        var currentQuestion = questions[currentQuestionIndex];
+        questionEl.textContent = currentQuestion.question;
+        option1.textContent = currentQuestion.answers.a;
+        option2.innerHTML = currentQuestion.answers.b;
+        option3.innerHTML = currentQuestion.answers.c;
+        option4.innerHTML = currentQuestion.answers.d;
+        currentQuestionIndex++;
+    } else {
+        endQuiz();
+    }    
 }
 
 function checkAnswer(userChoice) {
@@ -108,17 +115,17 @@ function checkAnswer(userChoice) {
     } else {
         // message you're wrong
         secondsLeft = secondsLeft - 5;
-        timeEl.textContent = secondsLeft; 
+        timerInterval.textContent = secondsLeft; 
     }
 }
 function setTime() {
     // Sets interval in variable
     var timerInterval = setInterval(function() {
       secondsLeft--;
-      timeEl.textContent = secondsLeft; 
+      timeCounter.textContent = secondsLeft; 
   
       if(secondsLeft <= 0) {
-        timeEl.textContent = 0;
+        timeCounter.textContent = 0;
         // Stops execution of action at set interval
         clearInterval(timerInterval);
         // Calls function to create and append image
@@ -127,4 +134,17 @@ function setTime() {
   
     }, 1000);
     // beforeStart();
+  }
+
+  function endQuiz() {
+    document.getElementById('startQuiz').style.display='none';
+    document.getElementById('startPage').style.display='none';
+    document.querySelector(".questions").style.display="none";
+    document.getElementById('results').style.display='block';
+
+    var score= secondsLeft;
+    scores.textContent = score;
+
+
+
   }
