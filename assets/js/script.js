@@ -9,6 +9,10 @@ var startQuiz = document.getElementById("startQuiz");
 var startPage = document.getElementById("start-page");
 var timeCounter = document.querySelector("li span");
 var scores = document.getElementById("score");
+var message = document.getElementById("check-answer");
+var initials = document.getElementById("initials");
+
+var timerInterval;
 
 var questions =[ 
 {
@@ -67,8 +71,8 @@ var currentQuestionIndex = 0
 
 startQuiz.addEventListener("click", function() {
     setTime();
-    askQuestions();
-   
+    askQuestions();  
+
 });
 
 option1.addEventListener("click", function(event){
@@ -95,10 +99,10 @@ function askQuestions() {
     document.getElementById('startPage').style.display='none';
     document.querySelector(".questions").style.display="block";
   
-    if (currentQuestionIndex <= questions.length){
+    if (currentQuestionIndex < questions.length){
         var currentQuestion = questions[currentQuestionIndex];
         questionEl.textContent = currentQuestion.question;
-        option1.textContent = currentQuestion.answers.a;
+        option1.innerHTML = currentQuestion.answers.a;
         option2.innerHTML = currentQuestion.answers.b;
         option3.innerHTML = currentQuestion.answers.c;
         option4.innerHTML = currentQuestion.answers.d;
@@ -110,17 +114,19 @@ function askQuestions() {
 
 function checkAnswer(userChoice) {
     if (questions[currentQuestionIndex-1].correctAnswer === userChoice){
-        // correct
+        message.textContent = "You're Correct!"
         console.log("correct");
     } else {
-        // message you're wrong
+        message.textContent = "Wrong Answer"
         secondsLeft = secondsLeft - 5;
-        timerInterval.textContent = secondsLeft; 
+        // timerInterval.innerHTML = secondsLeft; 
+        console.log("wrong");
+        // askQuestions();
     }
 }
 function setTime() {
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
       secondsLeft--;
       timeCounter.textContent = secondsLeft; 
   
@@ -128,12 +134,12 @@ function setTime() {
         timeCounter.textContent = 0;
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-        // Calls function to create and append image
+        // Calls function to end quiz if time runs out
         endQuiz();
       }
   
     }, 1000);
-    // beforeStart();
+    
   }
 
   function endQuiz() {
@@ -144,7 +150,17 @@ function setTime() {
 
     var score= secondsLeft;
     scores.textContent = score;
-
-
-
+    clearInterval(timerInterval);
+    // localStorage.setItem("score", score);
+    // localStorage.setItem("initials", initials);
   }
+
+// var userScore = {
+//     setScore = score,
+//     userInitials = initials.value
+// }
+
+
+
+
+  // 
