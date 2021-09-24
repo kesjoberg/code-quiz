@@ -19,11 +19,11 @@ var questions =[
     question: "What does 'M' mean in HTML?", 
     answers :{
         a: "Management",
-        b: "Markdown",
+        b: "Markup",
         c: "Marker",
-        d: "Markup"
+        d: "Markdown"
     },
-    correctAnswer: "Markdown"
+    correctAnswer: "Markup"
 },
 {
     question: "We can use _______________ to save user information to a personal computer or device?", 
