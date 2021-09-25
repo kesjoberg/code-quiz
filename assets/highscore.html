@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High Scores</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>HighScores</title>
 </head>
 <body>
-  <div class='container'>
-    <h1>High Scores</h1>
-
-    <div id='return-scores'>
-      <a href="../index.html"><button>Play Again</button></a>
+  <div class="container">
+    <div id="highscores" class="flex-center flex-column">
+      <h1 id ="finalScore">High Scores</h1>
+      <ul id="highScoresList"></ul>
+      <a class="btn" href="../index.html">Play Again</a>
     </div>
-
   </div>
-  
+
+  <script src="js/highscore.js" rel="javascript"> </script>
 </body>
 </html>

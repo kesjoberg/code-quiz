@@ -10,10 +10,12 @@ var startPage = document.getElementById("start-page");
 var timeCounter = document.querySelector("li span");
 var scores = document.getElementById("score");
 var message = document.getElementById("check-answer");
-var initials = document.getElementById("initials");
+var getInitials = document.querySelector("#initials");
+var highScoreBtn = document.getElementById("hs-button");
+var goToHighScoreBtn = document.getElementById("gths");
 
 var timerInterval;
-
+var score;
 var questions =[ 
 {
     question: "What does 'M' mean in HTML?", 
@@ -67,7 +69,8 @@ var questions =[
 }
 ];
 
-var currentQuestionIndex = 0
+var currentQuestionIndex = 0;
+
 
 startQuiz.addEventListener("click", function() {
     setTime();
@@ -91,6 +94,8 @@ option4.addEventListener("click", function(event){
     checkAnswer(event.target.innerText);
     askQuestions();
 });
+
+
 
 
 function askQuestions() {
@@ -142,25 +147,32 @@ function setTime() {
     
   }
 
-  function endQuiz() {
+
+
+function endQuiz() {
     document.getElementById('startQuiz').style.display='none';
     document.getElementById('startPage').style.display='none';
     document.querySelector(".questions").style.display="none";
     document.getElementById('results').style.display='block';
 
-    var score= secondsLeft;
+    score= secondsLeft;
     scores.textContent = score;
     clearInterval(timerInterval);
-    // localStorage.setItem("score", score);
-    // localStorage.setItem("initials", initials);
-  }
+    
+    
+}
 
-// var userScore = {
-//     setScore = score,
-//     userInitials = initials.value
-// }
+highScoreBtn.addEventListener("click", function(event){
+    event.preventDefault();  
+        var userScore ={
+        currentScore: score,
+        userInitials: getInitials.value
+    };
+    
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+
+});
 
 
 
 
-  // 
