@@ -1,12 +1,3 @@
-.hide {
-  display: none;
-}
-
-.show{
-  display: flex;
-}
-/* can add and remove classes to show and hide sections on the screen.*/
-
 .header {
   padding: 1%;
   background-color: rgb(158, 240, 255);

@@ -1,5 +1,5 @@
-var timeEl = document.getElementById('countdown');
-var secondsLeft = 40;
+//Selectors
+
 var questionEl = document.getElementById("currentQuestion");
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
@@ -8,12 +8,10 @@ var option4 = document.getElementById("option4");
 var startQuiz = document.getElementById("startQuiz");
 var startPage = document.getElementById("start-page");
 var timeCounter = document.querySelector("li span");
-var scores = document.getElementById("score");
 var message = document.getElementById("check-answer");
-var getInitials = document.querySelector("#initials");
-var highScoreBtn = document.getElementById("hs-button");
-var goToHighScoreBtn = document.getElementById("gths");
 
+//Global Variables
+var secondsLeft = 60;
 var timerInterval;
 var score;
 var questions =[ 
@@ -68,10 +66,9 @@ var questions =[
     correctAnswer: "iteration"
 }
 ];
-
 var currentQuestionIndex = 0;
 
-
+// Event Listeners
 startQuiz.addEventListener("click", function() {
     setTime();
     askQuestions();  
@@ -97,7 +94,7 @@ option4.addEventListener("click", function(event){
 
 
 
-
+//functions
 function askQuestions() {
     // the following will stop displaying the first page and display the questions.
     document.getElementById('startQuiz').style.display='none';
@@ -124,9 +121,8 @@ function checkAnswer(userChoice) {
     } else {
         message.textContent = "Wrong Answer"
         secondsLeft = secondsLeft - 5;
-        // timerInterval.innerHTML = secondsLeft; 
         console.log("wrong");
-        // askQuestions();
+        
     }
 }
 function setTime() {
@@ -150,13 +146,7 @@ function setTime() {
 
 
 function endQuiz() {
-    // document.getElementById('startQuiz').style.display='none';
-    // document.getElementById('startPage').style.display='none';
-    // document.querySelector(".questions").style.display="none";
-    // document.getElementById('results').style.display='block';
-
     score= secondsLeft;
-    // scores.textContent = score;
     clearInterval(timerInterval);
     
     localStorage.setItem('mostRecentScore',score);
@@ -164,29 +154,6 @@ function endQuiz() {
 
 }
 
-// highScoreBtn.addEventListener("click", function(event){
-//     event.preventDefault();  
-//         var userScore ={
-//         currentScore: score,
-//         userInitials: getInitials.value
-//     };
-
-//     //var test = ["One","TWO"];
-//     //test.push("THREE");
-//     //localStorage.setItem('test',JSON.stringify(test));
-//     var test2 = JSON.parse(localStorage.getItem('test2'));
-//     console.log(test2);
-//     test2.push("Four");
-//     localStorage.setItem("test2",test2);
-//     console.log(test2);
-    
-//     var highScores = JSON.parse(localStorage.getItem("userScore"));
-//     //var highScores = localStorage.getItem("userScore");
-//     console.log(highScores);
-//     //highScores.push(JSON.stringify(userScore));
-//     localStorage.setItem("userScore", JSON.stringify(userScore));
-
-// });
 
 
 

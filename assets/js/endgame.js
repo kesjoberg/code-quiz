@@ -8,8 +8,8 @@ var highScores= JSON.parse(localStorage.getItem("highScores")) || [];
 
 insertScore.textContent = mostRecentScore;
 
-submitBtn.addEventListener("click", function(e){
-  e.preventDefault();
+submitBtn.addEventListener("click", function(event){
+  event.preventDefault();
 
   var scores={
     score: mostRecentScore,
@@ -18,7 +18,11 @@ submitBtn.addEventListener("click", function(e){
 
   highScores.push(scores);
 
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(5);
+
   localStorage.setItem("highScores", JSON.stringify(highScores));
+
 })
 
 
