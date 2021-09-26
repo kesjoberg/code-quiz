@@ -150,28 +150,43 @@ function setTime() {
 
 
 function endQuiz() {
-    document.getElementById('startQuiz').style.display='none';
-    document.getElementById('startPage').style.display='none';
-    document.querySelector(".questions").style.display="none";
-    document.getElementById('results').style.display='block';
+    // document.getElementById('startQuiz').style.display='none';
+    // document.getElementById('startPage').style.display='none';
+    // document.querySelector(".questions").style.display="none";
+    // document.getElementById('results').style.display='block';
 
     score= secondsLeft;
-    scores.textContent = score;
+    // scores.textContent = score;
     clearInterval(timerInterval);
     
-    
+    localStorage.setItem('mostRecentScore',score);
+    window.location.replace("./assets/endgame.html");
+
 }
 
-highScoreBtn.addEventListener("click", function(event){
-    event.preventDefault();  
-        var userScore ={
-        currentScore: score,
-        userInitials: getInitials.value
-    };
-    
-    localStorage.setItem("userScore", JSON.stringify(userScore));
+// highScoreBtn.addEventListener("click", function(event){
+//     event.preventDefault();  
+//         var userScore ={
+//         currentScore: score,
+//         userInitials: getInitials.value
+//     };
 
-});
+//     //var test = ["One","TWO"];
+//     //test.push("THREE");
+//     //localStorage.setItem('test',JSON.stringify(test));
+//     var test2 = JSON.parse(localStorage.getItem('test2'));
+//     console.log(test2);
+//     test2.push("Four");
+//     localStorage.setItem("test2",test2);
+//     console.log(test2);
+    
+//     var highScores = JSON.parse(localStorage.getItem("userScore"));
+//     //var highScores = localStorage.getItem("userScore");
+//     console.log(highScores);
+//     //highScores.push(JSON.stringify(userScore));
+//     localStorage.setItem("userScore", JSON.stringify(userScore));
+
+// });
 
 
 

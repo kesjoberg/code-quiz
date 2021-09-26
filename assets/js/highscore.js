@@ -1,15 +1,11 @@
 var highScoresList = document.getElementById("highScoresList");
 var highScores = JSON.parse(localStorage.getItem("userScore"));
+var currentHighScore = highScores.currentScore;
+var currentUser = highScores.userInitials;
 
-console.log(highScores);
+let newListItem = document.createElement('l1');
+newListItem.textContent = currentHighScore + " "+ currentUser;
+
+highScoresList.appendChild(newListItem);
 
 
-highScores.map(score => {
-  console.log( ${score,initials} - ${score,score} );
-});
-
-// highScoresList.innerHTML = highScores
-//   .map(score => {
-//     return'<li>$(score.name)-$(score.score)</li>';
-//   })
-//   .join("");
