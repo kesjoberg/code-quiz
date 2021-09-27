@@ -18,7 +18,7 @@ submitBtn.addEventListener("click", function(event){
 
   highScores.push(scores);
 
-  highScores.sort((a, b) => b.score - a.score);
+  highScores.sort(function(a, b) { b.score - a.score});
   highScores.splice(5);
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
