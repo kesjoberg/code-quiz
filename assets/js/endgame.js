@@ -18,10 +18,12 @@ submitBtn.addEventListener("click", function(event){
 
   highScores.push(scores);
 
-  highScores.sort(function(a, b) { b.score - a.score});
+  highScores.sort(function(a, b) { return b.score - a.score});
   highScores.splice(5);
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
+
+  window.location.href = "./highscore.html";
 
 })
 
